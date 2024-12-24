@@ -141,7 +141,7 @@ Since Killercoda does not support a LoadBalancer service, map the Node's IP addr
 
     `curl http://eg.first.com:32209/first`
     
-    here port of ingress-controller
+    here port (32209) is of ingress-controller
 
     get this port by using: `kubectl get svc -n ingress-nginx ingress-nginx-controller`
 
