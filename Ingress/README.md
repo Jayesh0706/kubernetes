@@ -65,7 +65,9 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80```
+    targetPort: 80
+```
+
 2.  Apply the YAML file:
 
 
@@ -82,8 +84,8 @@ spec:
 
 1.  Create an Ingress YAML file (`ingress.yml`):
 
-
-    `apiVersion: networking.k8s.io/v1
+```
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: my-ingress
@@ -102,6 +104,7 @@ spec:
                 name: myservice
                 port:
                   number: 80`
+```
 
 2.  Apply the Ingress resource:
 
@@ -175,8 +178,8 @@ If you want to assign a custom NodePort, edit the NGINX service:
 
 2.  Modify the `nodePort` under the `ports` section:
 
-
-    `ports:
+```
+    ports:
     - name: http
       port: 80
       targetPort: 80
@@ -185,7 +188,7 @@ If you want to assign a custom NodePort, edit the NGINX service:
       port: 443
       targetPort: 443
       nodePort: 30443`
-
+```
 * * * * *
 
 ### **7\. Cleanup**
@@ -202,6 +205,9 @@ To clean up resources when you're done:
     `kubectl delete -f app-deployment.yml`
 
 3.  Uninstall the NGINX Ingress Controller:
+   ` kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
+
+  
 
 
     `kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/dep`
