@@ -140,7 +140,9 @@ Since Killercoda does not support a LoadBalancer service, map the Node's IP addr
 1.  Access the application using the NodePort (HTTP):
 
     `curl http://eg.first.com:32209/first`
+    
     here port of ingress-controller
+
     get this port by using: `kubectl get svc -n ingress-nginx ingress-nginx-controller`
 
     This should return the NGINX welcome page.
