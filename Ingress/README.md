@@ -211,7 +211,4 @@ To clean up resources when you're done:
 3.  Uninstall the NGINX Ingress Controller:
    ` kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
 
-  
 
-
-    `kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/dep`
