@@ -32,42 +32,40 @@ We deployed a sample backend to test the Ingress.
 
 #### **Create a Deployment and Service**
 
-1.  Define a simple Deployment and Service (`app-deployment.yml`):
+1. Define a simple Deployment and Service (app-deployment.yml):
 
-
-
-    `apiVersion: apps/v1
-    kind: Deployment
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
     metadata:
-      name: myapp
-    spec:
-      replicas: 3
-      selector:
-        matchLabels:
-          app: myapp
-      template:
-        metadata:
-          labels:
-            app: myapp
-        spec:
-          containers:
-          - name: nginx
-            image: nginx
-            ports:
-            - containerPort: 80
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: myservice
-    spec:
-      selector:
+      labels:
         app: myapp
-      ports:
-      - protocol: TCP
-        port: 80
-        targetPort: 80`
-
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myservice
+spec:
+  selector:
+    app: myapp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80```
 2.  Apply the YAML file:
 
 
