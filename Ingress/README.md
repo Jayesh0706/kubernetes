@@ -1,4 +1,4 @@
-Here's a step-by-step guide summarizing everything we did to set up the NGINX Ingress Controller and configure an Ingress resource in Kubernetes using Killercoda. This will serve as a detailed reference for future use.
+# To set up the NGINX Ingress Controller and configure an Ingress resource in Kubernetes using Killercoda. This will serve as a detailed reference for future use.
 
 * * * * *
 
