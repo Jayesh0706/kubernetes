@@ -1,0 +1,17 @@
+#for kind: Pod
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: resource-demo
+  namespace: dev
+spec:
+  containers:
+    - name: demo
+      image: nginx
+      resources:
+        requests:
+           memory: "128Mi"
+           cpu: "200m"
+        limits:
+           memory: "200Mi"
+           cpu: "400m"
