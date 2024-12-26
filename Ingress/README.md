@@ -1,4 +1,4 @@
-Here's a step-by-step guide summarizing everything we did to set up the NGINX Ingress Controller and configure an Ingress resource in Kubernetes using Killercoda. This will serve as a detailed reference for future use.
+# To set up the NGINX Ingress Controller and configure an Ingress resource in Kubernetes using Killercoda. This will serve as a detailed reference for future use.
 
 * * * * *
 
@@ -23,7 +23,7 @@ Here's a step-by-step guide summarizing everything we did to set up the NGINX In
     `kubectl get svc -n ingress-nginx`
 
     Note the `NodePort` for HTTP (e.g., `32209`) and HTTPS (e.g., `31990`).
-
+    we will use this port to access ingress and through ingress we will access our sevice 
 * * * * *
 
 ### **2\. Deploy a Backend Application**
@@ -140,6 +140,10 @@ Since Killercoda does not support a LoadBalancer service, map the Node's IP addr
 1.  Access the application using the NodePort (HTTP):
 
     `curl http://eg.first.com:32209/first`
+    
+    here port (32209) is of ingress-controller
+
+    get this port by using: `kubectl get svc -n ingress-nginx ingress-nginx-controller`
 
     This should return the NGINX welcome page.
 
@@ -207,7 +211,4 @@ To clean up resources when you're done:
 3.  Uninstall the NGINX Ingress Controller:
    ` kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml`
 
-  
 
-
-    `kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/dep`
