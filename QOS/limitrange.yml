@@ -1,0 +1,22 @@
+#for containers or pods in a namespace.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-example
+  namespace: dev
+spec:
+  limits:
+    - type: Container
+      max: 
+        memory: "300Mi"
+        cpu: "200m"
+      min:
+        memory: "200Mi"
+        cpu: "100m"
+      default:
+        memory: "256Mi"
+        cpu: "150m"
+      defaultRequest:
+        memory: "228Mi"
+        cpu: "125m"
+      

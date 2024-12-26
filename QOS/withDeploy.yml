@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+  namespace: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+        containers:
+          - name: ngx
+            image: nginx
+            ports:
+              - containerPort: 80
+            resources:
+              requests:
+                memory: "110Mi"
+                cpu: "200m"
+              limits:
+                memory: "210Mi"
+                cpu: "300m" 
