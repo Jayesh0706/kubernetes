@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mypod
+  name: mypod2
+spec:
+  containers:
+  - image: redis
+    name: mypod2
+    resources: {}
+  affinity:             
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:  # rule you want 
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: env   #key of your desired node 
+            operator: In   #operator (here is affinity)
+            values:  
+            - web       #value in key of your desired node 
