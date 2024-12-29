@@ -11,7 +11,7 @@
 The Kubernetes API server supports multiple authorization modes, evaluated in the order they are configured:
 
 #### a. **Role-Based Access Control (RBAC)** _(Most Common)_
-- **Role-Based Access Control (RBAC)** in Kubernetes is a method for ==controlling access to resources== based on the roles of users within your cluster. RBAC is highly flexible and allows ==fine-grained access control== for cluster users, applications, and service accounts.
+- **Role-Based Access Control (RBAC)** in Kubernetes is a method for controlling access to resources based on the roles of users within your cluster. RBAC is highly flexible and allows ==fine-grained access control== for cluster users, applications, and service accounts.
  
 - Kubernetes includes a robust RBAC implementation that can be used to segregate users in your cluster. You can set up ==RBAC rules to restrict users== to just the cluster resources they need to access.
 
@@ -19,12 +19,12 @@ The Kubernetes API server supports multiple authorization modes, evaluated in th
 
 - The Kubernetes API server has [built-in RBAC support](https://kubernetes.io/docs/reference/access-authn-authz/rbac) that works with both [Users](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes) and [Service Accounts](https://kubernetes.io/docs/concepts/security/service-accounts).
 
-- RBAC is configured in your cluster by enabling the RBAC feature, then creating objects using the resources provided by the ==`rbac.authorization.k8s.io`== API. 
+- RBAC is configured in your cluster by enabling the RBAC feature, then creating objects using the resources provided by the `rbac.authorization.k8s.io` API. 
 
 ### There are four of these objects available:
 #### **1) Role -**
-- A Role is a collection of permissions (rules) within a ==**specific namespace**==(Roles are namespaced).
-- when you create a Role, you have to ==specify the namespace it belongs in==.
+- A Role is a collection of permissions (rules) within a **specific namespace**(Roles are namespaced).
+- when you create a Role, you have to specify the namespace it belongs in.
 - It defines what actions (verbs) can be performed on what resources.
 - **Examples of Verbs**: `get`, `list`, `create`, `update`, `delete`, `watch`.
 - Roles are ==typically created based on job functions or business needs==, such as "admin," "developer," or "analyst."
