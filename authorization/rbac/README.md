@@ -11,9 +11,9 @@
 The Kubernetes API server supports multiple authorization modes, evaluated in the order they are configured:
 
 #### a. **Role-Based Access Control (RBAC)** _(Most Common)_
-- **Role-Based Access Control (RBAC)** in Kubernetes is a method for controlling access to resources based on the roles of users within your cluster. RBAC is highly flexible and allows ==fine-grained access control== for cluster users, applications, and service accounts.
+- **Role-Based Access Control (RBAC)** in Kubernetes is a method for controlling access to resources based on the roles of users within your cluster. RBAC is highly flexible and allows  fine-grained access control  for cluster users, applications, and service accounts.
  
-- Kubernetes includes a robust RBAC implementation that can be used to segregate users in your cluster. You can set up ==RBAC rules to restrict users== to just the cluster resources they need to access.
+- Kubernetes includes a robust RBAC implementation that can be used to segregate users in your cluster. You can set up  RBAC rules to restrict users  to just the cluster resources they need to access.
 
 ## How does RBAC work in Kubernetes?[](https://spacelift.io/blog/kubernetes-rbac#how-does-rbac-work-in-kubernetes)
 
@@ -27,7 +27,7 @@ The Kubernetes API server supports multiple authorization modes, evaluated in th
 - when you create a Role, you have to specify the namespace it belongs in.
 - It defines what actions (verbs) can be performed on what resources.
 - **Examples of Verbs**: `get`, `list`, `create`, `update`, `delete`, `watch`.
-- Roles are ==typically created based on job functions or business needs==, such as "admin," "developer," or "analyst."
+- Roles are  typically created based on job functions or business needs , such as "admin," "developer," or "analyst."
 ```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -43,11 +43,11 @@ rules:
 
 #### **2) Role Binding**
 - A role binding grants the permissions defined in a role to a user or set of users.\
-- A RoleBinding grants permissions defined in a **Role** to a user, ==group, or service account== within a specific ==namespace==.
-- A RoleBinding grants permissions within a specific namespace whereas a ==ClusterRoleBinding grants that access cluster-wide.==
+- A RoleBinding grants permissions defined in a **Role** to a user,  group, or service account  within a specific  namespace .
+- A RoleBinding grants permissions within a specific namespace whereas a  ClusterRoleBinding grants that access cluster-wide. 
 - A RoleBinding may reference any Role in the same namespace.
 - You need to already have a Role named  in that namespace before giving role-ref .
-- A RoleBinding ==can also reference a ClusterRole== to grant the permissions defined in that ClusterRole to resources inside the RoleBinding's namespace
+- A RoleBinding  can also reference a ClusterRole  to grant the permissions defined in that ClusterRole to resources inside the RoleBinding's namespace
 - This kind of reference lets you define a set of common roles across your cluster, then reuse them within multiple namespaces.
 
 ```
@@ -69,7 +69,7 @@ roleRef:                           # Reference to the Role
 #### **3) ClusterRole -**
 - Similar to a Role, but **cluster-wide** and can control resources across all namespaces.
 
-- A ClusterRole can be used to grant the same permissions as a Role. Because ==ClusterRoles are cluster-scoped==, you can also use them to grant access to:
+- A ClusterRole can be used to grant the same permissions as a Role. Because  ClusterRoles are cluster-scoped , you can also use them to grant access to:
      - cluster-scoped resources (like nodes, persistent volumes etc)    
      - non-resource endpoints (like `/healthz`)
      -  namespaced resources (like Pods), across all namespaces    
@@ -151,4 +151,3 @@ rules:
     
 4) **Check Access:**
     `kubectl auth can-i <verb> <resource> --namespace=<namespace> --as=<user>`
-
