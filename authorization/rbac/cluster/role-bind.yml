@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+# You need to already have a ClusterRole named "secret-reader".
+kind: RoleBinding
+
+metadata:
+  name: read-secrets   
+  namespace: development
+  # This only grants permissions within the "development" namespace.
+
+subjects:
+- kind: User
+  name: dave # Name is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+
+roleRef:
+  kind: ClusterRole  #for defining cluster-role's role
+  name: secret-reader   #role in clutser role 
+  apiGroup: rbac.authorization.k8s.io
