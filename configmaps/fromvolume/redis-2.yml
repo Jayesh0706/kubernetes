@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cm-vol-2
+
+spec:
+  containers:
+  - name: redis-new
+    image: redis
+    volumeMounts:
+    - name: config-volume  
+      mountPath: "/tmp/jayesh" 
+      readOnly: false  # trying to write to the volume   
+  volumes:
+  - name: config-volume  
+    configMap:  
+      name: vol-cm-2  
