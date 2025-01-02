@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multival
+spec:
+  containers:
+  - name: multival
+    image: busybox
+    command: ["sh", "-c", "echo Hello Kubernetes! && sleep 3600"]
+  - name: multival2
+    image: busybox
+    command: ["sh", "-c", "echo Hello Kubernetes! && sleep 3600"]
+    env:
+    - name: NAME
+      valueFrom:
+        configMapKeyRef:
+          name: multi-val-cm   # name of the configmap
+          key: name            # key of the configmap even if multiple keys are present we can give the key name here to extract the value of particular key

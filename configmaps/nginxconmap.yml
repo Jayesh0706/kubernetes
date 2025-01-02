@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: conmap-demo
+spec:
+  containers:
+  - name: conmap-ng
+    image: nginx
+    env:
+    - name: MY_NODE_NAME
+      valueFrom:
+        configMapKeyRef:
+          name: my-cm-1
+          key: NODE_NAME
